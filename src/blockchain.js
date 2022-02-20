@@ -64,6 +64,7 @@ class Blockchain {
     let self = this;
     return new Promise(async (resolve, reject) => {
       try {
+        await this.validateChain();
         const chainHeight = await this.getChainHeight();
         if (chainHeight > -1) {
           const previousBlock = await this.getBlockByHeight(chainHeight);
